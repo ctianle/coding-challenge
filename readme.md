@@ -1,5 +1,3 @@
-:exclamation: READ THIS FIRST :exclamation:
-
 # Switcheo Code Challenge #1 #
 
 Kindly **do not fork** this repository as your responses may be publicly linked to this repository.
