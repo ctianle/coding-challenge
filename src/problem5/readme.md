@@ -4,40 +4,21 @@
 `brew install ignite` (macos)
 requires golang
 
-## Creation of new Cosmos SDK blockchain
-`ignite scaffold chain crudechain`
+## Creation of new Cosmos SDK blockchain with a starting 'crude' prefix
+`ignite scaffold chain crudechain --address-prefix crude`
 
 ## 1 Command Trigger for creation of CRUD functionality 
-`ignite scaffold list crudechain title body`
+`ignite scaffold list crudeblock name description`
 
+Help
+`crudechaind tx crudechain --help`
 
-## Creation of Resource module
-`ignite scaffold module resourcemodule`
-
-## Function for creation of resource
-`ignite scaffold message create-resource <field1> <field2> --module resourcemodule`
-
-## Function for listing of resource
-`ignite scaffold query list-resource --module resourcemodule`
-
-## Function for getting details of a resource
-`ignite scaffold query get-resource id --module resourcemodule`
-
-## Function for updating a resource`
-`ignite scaffold message update-resource id title description --module resourcemodule`
-
-## Function for deletion of a resource`
-`ignite scaffold message delete-resource id --module resourcemodule`
 
 ## Build and deploy
 ```
 ignite chain build
 ignite chain serve
 ```
-
-# Interaction with API
-## 
-
 
 # Different ports and their purpose of usage
 
@@ -54,3 +35,9 @@ ignite chain serve
 ## Token Faucet (Default Port 4050)
 - Service to allow requesting of test token for usage on this blockchain as its a testnet environment. 
 - Commonly used for development/testing environments.
+
+## Debug commands
+`ignite chain serve --reset-once`
+
+## Debug paths
+`~/go/bin/crudechaind`
