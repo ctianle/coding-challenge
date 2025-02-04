@@ -1,0 +1,17 @@
+syntax = "proto3";
+package crudchain.crudchain;
+
+import "amino/amino.proto";
+import "gogoproto/gogo.proto";
+import "crudchain/crudchain/params.proto";
+
+option go_package = "crudchain/x/crudchain/types";
+
+// GenesisState defines the crudchain module's genesis state.
+message GenesisState {
+  // params defines all the parameters of the module.
+  Params params = 1 [
+    (gogoproto.nullable) = false,
+    (amino.dont_omitempty) = true
+  ];
+}
