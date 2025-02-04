@@ -8,7 +8,6 @@ package crudechain
 
 import (
 	context "context"
-
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -20,7 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Query_Params_FullMethodName = "/crudechain.crudechain.Query/Params"
+	Query_Params_FullMethodName        = "/crudechain.crudechain.Query/Params"
+	Query_Crudeblock_FullMethodName    = "/crudechain.crudechain.Query/Crudeblock"
+	Query_CrudeblockAll_FullMethodName = "/crudechain.crudechain.Query/CrudeblockAll"
 )
 
 // QueryClient is the client API for Query service.
@@ -29,6 +30,9 @@ const (
 type QueryClient interface {
 	// Parameters queries the parameters of the module.
 	Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error)
+	// Queries a list of Crudeblock items.
+	Crudeblock(ctx context.Context, in *QueryGetCrudeblockRequest, opts ...grpc.CallOption) (*QueryGetCrudeblockResponse, error)
+	CrudeblockAll(ctx context.Context, in *QueryAllCrudeblockRequest, opts ...grpc.CallOption) (*QueryAllCrudeblockResponse, error)
 }
 
 type queryClient struct {
@@ -48,12 +52,33 @@ func (c *queryClient) Params(ctx context.Context, in *QueryParamsRequest, opts .
 	return out, nil
 }
 
+func (c *queryClient) Crudeblock(ctx context.Context, in *QueryGetCrudeblockRequest, opts ...grpc.CallOption) (*QueryGetCrudeblockResponse, error) {
+	out := new(QueryGetCrudeblockResponse)
+	err := c.cc.Invoke(ctx, Query_Crudeblock_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) CrudeblockAll(ctx context.Context, in *QueryAllCrudeblockRequest, opts ...grpc.CallOption) (*QueryAllCrudeblockResponse, error) {
+	out := new(QueryAllCrudeblockResponse)
+	err := c.cc.Invoke(ctx, Query_CrudeblockAll_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 // All implementations must embed UnimplementedQueryServer
 // for forward compatibility
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
 	Params(context.Context, *QueryParamsRequest) (*QueryParamsResponse, error)
+	// Queries a list of Crudeblock items.
+	Crudeblock(context.Context, *QueryGetCrudeblockRequest) (*QueryGetCrudeblockResponse, error)
+	CrudeblockAll(context.Context, *QueryAllCrudeblockRequest) (*QueryAllCrudeblockResponse, error)
 	mustEmbedUnimplementedQueryServer()
 }
 
@@ -63,6 +88,12 @@ type UnimplementedQueryServer struct {
 
 func (UnimplementedQueryServer) Params(context.Context, *QueryParamsRequest) (*QueryParamsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Params not implemented")
+}
+func (UnimplementedQueryServer) Crudeblock(context.Context, *QueryGetCrudeblockRequest) (*QueryGetCrudeblockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Crudeblock not implemented")
+}
+func (UnimplementedQueryServer) CrudeblockAll(context.Context, *QueryAllCrudeblockRequest) (*QueryAllCrudeblockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CrudeblockAll not implemented")
 }
 func (UnimplementedQueryServer) mustEmbedUnimplementedQueryServer() {}
 
@@ -95,6 +126,42 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_Crudeblock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetCrudeblockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).Crudeblock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_Crudeblock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).Crudeblock(ctx, req.(*QueryGetCrudeblockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_CrudeblockAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllCrudeblockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).CrudeblockAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Query_CrudeblockAll_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).CrudeblockAll(ctx, req.(*QueryAllCrudeblockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Query_ServiceDesc is the grpc.ServiceDesc for Query service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -105,6 +172,14 @@ var Query_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Params",
 			Handler:    _Query_Params_Handler,
+		},
+		{
+			MethodName: "Crudeblock",
+			Handler:    _Query_Crudeblock_Handler,
+		},
+		{
+			MethodName: "CrudeblockAll",
+			Handler:    _Query_CrudeblockAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

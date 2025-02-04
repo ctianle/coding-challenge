@@ -8,7 +8,6 @@ package crudechain
 
 import (
 	context "context"
-
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
@@ -20,7 +19,10 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	Msg_UpdateParams_FullMethodName = "/crudechain.crudechain.Msg/UpdateParams"
+	Msg_UpdateParams_FullMethodName     = "/crudechain.crudechain.Msg/UpdateParams"
+	Msg_CreateCrudeblock_FullMethodName = "/crudechain.crudechain.Msg/CreateCrudeblock"
+	Msg_UpdateCrudeblock_FullMethodName = "/crudechain.crudechain.Msg/UpdateCrudeblock"
+	Msg_DeleteCrudeblock_FullMethodName = "/crudechain.crudechain.Msg/DeleteCrudeblock"
 )
 
 // MsgClient is the client API for Msg service.
@@ -30,6 +32,9 @@ type MsgClient interface {
 	// UpdateParams defines a (governance) operation for updating the module
 	// parameters. The authority defaults to the x/gov module account.
 	UpdateParams(ctx context.Context, in *MsgUpdateParams, opts ...grpc.CallOption) (*MsgUpdateParamsResponse, error)
+	CreateCrudeblock(ctx context.Context, in *MsgCreateCrudeblock, opts ...grpc.CallOption) (*MsgCreateCrudeblockResponse, error)
+	UpdateCrudeblock(ctx context.Context, in *MsgUpdateCrudeblock, opts ...grpc.CallOption) (*MsgUpdateCrudeblockResponse, error)
+	DeleteCrudeblock(ctx context.Context, in *MsgDeleteCrudeblock, opts ...grpc.CallOption) (*MsgDeleteCrudeblockResponse, error)
 }
 
 type msgClient struct {
@@ -49,6 +54,33 @@ func (c *msgClient) UpdateParams(ctx context.Context, in *MsgUpdateParams, opts 
 	return out, nil
 }
 
+func (c *msgClient) CreateCrudeblock(ctx context.Context, in *MsgCreateCrudeblock, opts ...grpc.CallOption) (*MsgCreateCrudeblockResponse, error) {
+	out := new(MsgCreateCrudeblockResponse)
+	err := c.cc.Invoke(ctx, Msg_CreateCrudeblock_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) UpdateCrudeblock(ctx context.Context, in *MsgUpdateCrudeblock, opts ...grpc.CallOption) (*MsgUpdateCrudeblockResponse, error) {
+	out := new(MsgUpdateCrudeblockResponse)
+	err := c.cc.Invoke(ctx, Msg_UpdateCrudeblock_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *msgClient) DeleteCrudeblock(ctx context.Context, in *MsgDeleteCrudeblock, opts ...grpc.CallOption) (*MsgDeleteCrudeblockResponse, error) {
+	out := new(MsgDeleteCrudeblockResponse)
+	err := c.cc.Invoke(ctx, Msg_DeleteCrudeblock_FullMethodName, in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // MsgServer is the server API for Msg service.
 // All implementations must embed UnimplementedMsgServer
 // for forward compatibility
@@ -56,6 +88,9 @@ type MsgServer interface {
 	// UpdateParams defines a (governance) operation for updating the module
 	// parameters. The authority defaults to the x/gov module account.
 	UpdateParams(context.Context, *MsgUpdateParams) (*MsgUpdateParamsResponse, error)
+	CreateCrudeblock(context.Context, *MsgCreateCrudeblock) (*MsgCreateCrudeblockResponse, error)
+	UpdateCrudeblock(context.Context, *MsgUpdateCrudeblock) (*MsgUpdateCrudeblockResponse, error)
+	DeleteCrudeblock(context.Context, *MsgDeleteCrudeblock) (*MsgDeleteCrudeblockResponse, error)
 	mustEmbedUnimplementedMsgServer()
 }
 
@@ -65,6 +100,15 @@ type UnimplementedMsgServer struct {
 
 func (UnimplementedMsgServer) UpdateParams(context.Context, *MsgUpdateParams) (*MsgUpdateParamsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method UpdateParams not implemented")
+}
+func (UnimplementedMsgServer) CreateCrudeblock(context.Context, *MsgCreateCrudeblock) (*MsgCreateCrudeblockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CreateCrudeblock not implemented")
+}
+func (UnimplementedMsgServer) UpdateCrudeblock(context.Context, *MsgUpdateCrudeblock) (*MsgUpdateCrudeblockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateCrudeblock not implemented")
+}
+func (UnimplementedMsgServer) DeleteCrudeblock(context.Context, *MsgDeleteCrudeblock) (*MsgDeleteCrudeblockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method DeleteCrudeblock not implemented")
 }
 func (UnimplementedMsgServer) mustEmbedUnimplementedMsgServer() {}
 
@@ -97,6 +141,60 @@ func _Msg_UpdateParams_Handler(srv interface{}, ctx context.Context, dec func(in
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Msg_CreateCrudeblock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgCreateCrudeblock)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).CreateCrudeblock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_CreateCrudeblock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).CreateCrudeblock(ctx, req.(*MsgCreateCrudeblock))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_UpdateCrudeblock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgUpdateCrudeblock)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).UpdateCrudeblock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_UpdateCrudeblock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).UpdateCrudeblock(ctx, req.(*MsgUpdateCrudeblock))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Msg_DeleteCrudeblock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(MsgDeleteCrudeblock)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(MsgServer).DeleteCrudeblock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: Msg_DeleteCrudeblock_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(MsgServer).DeleteCrudeblock(ctx, req.(*MsgDeleteCrudeblock))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // Msg_ServiceDesc is the grpc.ServiceDesc for Msg service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -107,6 +205,18 @@ var Msg_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateParams",
 			Handler:    _Msg_UpdateParams_Handler,
+		},
+		{
+			MethodName: "CreateCrudeblock",
+			Handler:    _Msg_CreateCrudeblock_Handler,
+		},
+		{
+			MethodName: "UpdateCrudeblock",
+			Handler:    _Msg_UpdateCrudeblock_Handler,
+		},
+		{
+			MethodName: "DeleteCrudeblock",
+			Handler:    _Msg_DeleteCrudeblock_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

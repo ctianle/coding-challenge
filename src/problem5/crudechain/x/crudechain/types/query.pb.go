@@ -6,11 +6,7 @@ package types
 import (
 	context "context"
 	fmt "fmt"
-	io "io"
-	math "math"
-	math_bits "math/bits"
-
-	_ "github.com/cosmos/cosmos-sdk/types/query"
+	query "github.com/cosmos/cosmos-sdk/types/query"
 	_ "github.com/cosmos/cosmos-sdk/types/tx/amino"
 	_ "github.com/cosmos/gogoproto/gogoproto"
 	grpc1 "github.com/cosmos/gogoproto/grpc"
@@ -19,6 +15,9 @@ import (
 	grpc "google.golang.org/grpc"
 	codes "google.golang.org/grpc/codes"
 	status "google.golang.org/grpc/status"
+	io "io"
+	math "math"
+	math_bits "math/bits"
 )
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -115,34 +114,235 @@ func (m *QueryParamsResponse) GetParams() Params {
 	return Params{}
 }
 
+type QueryGetCrudeblockRequest struct {
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (m *QueryGetCrudeblockRequest) Reset()         { *m = QueryGetCrudeblockRequest{} }
+func (m *QueryGetCrudeblockRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryGetCrudeblockRequest) ProtoMessage()    {}
+func (*QueryGetCrudeblockRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8b0b1164ef78c74b, []int{2}
+}
+func (m *QueryGetCrudeblockRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetCrudeblockRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetCrudeblockRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetCrudeblockRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetCrudeblockRequest.Merge(m, src)
+}
+func (m *QueryGetCrudeblockRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetCrudeblockRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetCrudeblockRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetCrudeblockRequest proto.InternalMessageInfo
+
+func (m *QueryGetCrudeblockRequest) GetId() uint64 {
+	if m != nil {
+		return m.Id
+	}
+	return 0
+}
+
+type QueryGetCrudeblockResponse struct {
+	Crudeblock Crudeblock `protobuf:"bytes,1,opt,name=Crudeblock,proto3" json:"Crudeblock"`
+}
+
+func (m *QueryGetCrudeblockResponse) Reset()         { *m = QueryGetCrudeblockResponse{} }
+func (m *QueryGetCrudeblockResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryGetCrudeblockResponse) ProtoMessage()    {}
+func (*QueryGetCrudeblockResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8b0b1164ef78c74b, []int{3}
+}
+func (m *QueryGetCrudeblockResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryGetCrudeblockResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryGetCrudeblockResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryGetCrudeblockResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryGetCrudeblockResponse.Merge(m, src)
+}
+func (m *QueryGetCrudeblockResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryGetCrudeblockResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryGetCrudeblockResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryGetCrudeblockResponse proto.InternalMessageInfo
+
+func (m *QueryGetCrudeblockResponse) GetCrudeblock() Crudeblock {
+	if m != nil {
+		return m.Crudeblock
+	}
+	return Crudeblock{}
+}
+
+type QueryAllCrudeblockRequest struct {
+	Pagination *query.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllCrudeblockRequest) Reset()         { *m = QueryAllCrudeblockRequest{} }
+func (m *QueryAllCrudeblockRequest) String() string { return proto.CompactTextString(m) }
+func (*QueryAllCrudeblockRequest) ProtoMessage()    {}
+func (*QueryAllCrudeblockRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8b0b1164ef78c74b, []int{4}
+}
+func (m *QueryAllCrudeblockRequest) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllCrudeblockRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllCrudeblockRequest.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllCrudeblockRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllCrudeblockRequest.Merge(m, src)
+}
+func (m *QueryAllCrudeblockRequest) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllCrudeblockRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllCrudeblockRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllCrudeblockRequest proto.InternalMessageInfo
+
+func (m *QueryAllCrudeblockRequest) GetPagination() *query.PageRequest {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
+type QueryAllCrudeblockResponse struct {
+	Crudeblock []Crudeblock        `protobuf:"bytes,1,rep,name=Crudeblock,proto3" json:"Crudeblock"`
+	Pagination *query.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (m *QueryAllCrudeblockResponse) Reset()         { *m = QueryAllCrudeblockResponse{} }
+func (m *QueryAllCrudeblockResponse) String() string { return proto.CompactTextString(m) }
+func (*QueryAllCrudeblockResponse) ProtoMessage()    {}
+func (*QueryAllCrudeblockResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_8b0b1164ef78c74b, []int{5}
+}
+func (m *QueryAllCrudeblockResponse) XXX_Unmarshal(b []byte) error {
+	return m.Unmarshal(b)
+}
+func (m *QueryAllCrudeblockResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	if deterministic {
+		return xxx_messageInfo_QueryAllCrudeblockResponse.Marshal(b, m, deterministic)
+	} else {
+		b = b[:cap(b)]
+		n, err := m.MarshalToSizedBuffer(b)
+		if err != nil {
+			return nil, err
+		}
+		return b[:n], nil
+	}
+}
+func (m *QueryAllCrudeblockResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_QueryAllCrudeblockResponse.Merge(m, src)
+}
+func (m *QueryAllCrudeblockResponse) XXX_Size() int {
+	return m.Size()
+}
+func (m *QueryAllCrudeblockResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_QueryAllCrudeblockResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_QueryAllCrudeblockResponse proto.InternalMessageInfo
+
+func (m *QueryAllCrudeblockResponse) GetCrudeblock() []Crudeblock {
+	if m != nil {
+		return m.Crudeblock
+	}
+	return nil
+}
+
+func (m *QueryAllCrudeblockResponse) GetPagination() *query.PageResponse {
+	if m != nil {
+		return m.Pagination
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*QueryParamsRequest)(nil), "crudechain.crudechain.QueryParamsRequest")
 	proto.RegisterType((*QueryParamsResponse)(nil), "crudechain.crudechain.QueryParamsResponse")
+	proto.RegisterType((*QueryGetCrudeblockRequest)(nil), "crudechain.crudechain.QueryGetCrudeblockRequest")
+	proto.RegisterType((*QueryGetCrudeblockResponse)(nil), "crudechain.crudechain.QueryGetCrudeblockResponse")
+	proto.RegisterType((*QueryAllCrudeblockRequest)(nil), "crudechain.crudechain.QueryAllCrudeblockRequest")
+	proto.RegisterType((*QueryAllCrudeblockResponse)(nil), "crudechain.crudechain.QueryAllCrudeblockResponse")
 }
 
 func init() { proto.RegisterFile("crudechain/crudechain/query.proto", fileDescriptor_8b0b1164ef78c74b) }
 
 var fileDescriptor_8b0b1164ef78c74b = []byte{
-	// 299 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0x52, 0x4c, 0x2e, 0x2a, 0x4d,
-	0x49, 0x4d, 0xce, 0x48, 0xcc, 0xcc, 0xd3, 0x47, 0x62, 0x16, 0x96, 0xa6, 0x16, 0x55, 0xea, 0x15,
-	0x14, 0xe5, 0x97, 0xe4, 0x0b, 0x89, 0x22, 0xc4, 0xf5, 0x10, 0x4c, 0x29, 0xc1, 0xc4, 0xdc, 0xcc,
-	0xbc, 0x7c, 0x7d, 0x30, 0x09, 0x51, 0x29, 0x25, 0x92, 0x9e, 0x9f, 0x9e, 0x0f, 0x66, 0xea, 0x83,
-	0x58, 0x50, 0x51, 0x99, 0xf4, 0xfc, 0xfc, 0xf4, 0x9c, 0x54, 0xfd, 0xc4, 0x82, 0x4c, 0xfd, 0xc4,
-	0xbc, 0xbc, 0xfc, 0x92, 0xc4, 0x92, 0xcc, 0xfc, 0xbc, 0x62, 0xa8, 0xac, 0x56, 0x72, 0x7e, 0x71,
-	0x6e, 0x7e, 0xb1, 0x7e, 0x52, 0x62, 0x71, 0x2a, 0xc4, 0x5a, 0xfd, 0x32, 0xc3, 0xa4, 0xd4, 0x92,
-	0x44, 0x43, 0xfd, 0x82, 0xc4, 0xf4, 0xcc, 0x3c, 0xb0, 0x62, 0xa8, 0x5a, 0x25, 0xec, 0x8e, 0x2d,
-	0x48, 0x2c, 0x4a, 0xcc, 0x85, 0x9a, 0xa7, 0x24, 0xc2, 0x25, 0x14, 0x08, 0x32, 0x25, 0x00, 0x2c,
-	0x18, 0x94, 0x5a, 0x58, 0x9a, 0x5a, 0x5c, 0xa2, 0x14, 0xce, 0x25, 0x8c, 0x22, 0x5a, 0x5c, 0x90,
-	0x9f, 0x57, 0x9c, 0x2a, 0xe4, 0xc0, 0xc5, 0x06, 0xd1, 0x2c, 0xc1, 0xa8, 0xc0, 0xa8, 0xc1, 0x6d,
-	0x24, 0xab, 0x87, 0xd5, 0xaf, 0x7a, 0x10, 0x6d, 0x4e, 0x9c, 0x27, 0xee, 0xc9, 0x33, 0xac, 0x78,
-	0xbe, 0x41, 0x8b, 0x31, 0x08, 0xaa, 0xcf, 0x68, 0x02, 0x23, 0x17, 0x2b, 0xd8, 0x64, 0xa1, 0x36,
-	0x46, 0x2e, 0x36, 0x88, 0x3a, 0x21, 0x4d, 0x1c, 0xc6, 0x60, 0x3a, 0x4c, 0x4a, 0x8b, 0x18, 0xa5,
-	0x10, 0xd7, 0x2a, 0xa9, 0x36, 0x5d, 0x7e, 0x32, 0x99, 0x49, 0x5e, 0x48, 0x56, 0x1f, 0x5f, 0x38,
-	0x38, 0x99, 0x9f, 0x78, 0x24, 0xc7, 0x78, 0xe1, 0x91, 0x1c, 0xe3, 0x83, 0x47, 0x72, 0x8c, 0x13,
-	0x1e, 0xcb, 0x31, 0x5c, 0x78, 0x2c, 0xc7, 0x70, 0xe3, 0xb1, 0x1c, 0x43, 0x94, 0x2c, 0x92, 0xe2,
-	0x0a, 0x64, 0x9d, 0x25, 0x95, 0x05, 0xa9, 0xc5, 0x49, 0x6c, 0xe0, 0x10, 0x34, 0x06, 0x04, 0x00,
-	0x00, 0xff, 0xff, 0x99, 0xbd, 0x7b, 0x18, 0x14, 0x02, 0x00, 0x00,
+	// 497 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x94, 0x41, 0x8b, 0x13, 0x31,
+	0x14, 0xc7, 0x9b, 0xee, 0x5a, 0x30, 0xa2, 0x60, 0x5c, 0x41, 0x07, 0x3b, 0x6b, 0x23, 0xd6, 0xdd,
+	0x0a, 0x89, 0x5d, 0x0f, 0x5e, 0xdd, 0x0a, 0xee, 0x75, 0x9d, 0x8b, 0xe0, 0x2d, 0x9d, 0x09, 0x63,
+	0x70, 0x3a, 0x99, 0x9d, 0x4c, 0xc5, 0x45, 0xbc, 0x78, 0xf0, 0x2c, 0xf8, 0x01, 0xc4, 0x9b, 0x27,
+	0xf1, 0x63, 0xec, 0x71, 0x41, 0x10, 0x4f, 0x22, 0xad, 0xe0, 0xd7, 0x90, 0x49, 0xa2, 0x13, 0xed,
+	0x74, 0xaa, 0x7b, 0x29, 0x8f, 0xf4, 0xff, 0x7f, 0xff, 0x5f, 0xf2, 0x5e, 0x0b, 0x7b, 0x61, 0x3e,
+	0x8d, 0x78, 0xf8, 0x98, 0x89, 0x94, 0x3a, 0xe5, 0xc1, 0x94, 0xe7, 0x87, 0x24, 0xcb, 0x65, 0x21,
+	0xd1, 0xc5, 0xea, 0x9c, 0x54, 0xa5, 0x77, 0x9e, 0x4d, 0x44, 0x2a, 0xa9, 0xfe, 0x34, 0x4a, 0x6f,
+	0x23, 0x96, 0xb1, 0xd4, 0x25, 0x2d, 0x2b, 0x7b, 0x7a, 0x25, 0x96, 0x32, 0x4e, 0x38, 0x65, 0x99,
+	0xa0, 0x2c, 0x4d, 0x65, 0xc1, 0x0a, 0x21, 0x53, 0x65, 0xbf, 0x1d, 0x84, 0x52, 0x4d, 0xa4, 0xa2,
+	0x63, 0xa6, 0xb8, 0x89, 0xa5, 0x4f, 0x87, 0x63, 0x5e, 0xb0, 0x21, 0xcd, 0x58, 0x2c, 0x52, 0x2d,
+	0xb6, 0x5a, 0x5c, 0x0f, 0x9b, 0xb1, 0x9c, 0x4d, 0x7e, 0xf5, 0xeb, 0xd7, 0x6b, 0x74, 0x39, 0x4e,
+	0x64, 0xf8, 0xc4, 0xe8, 0xf0, 0x06, 0x44, 0x0f, 0xca, 0xb4, 0x7d, 0x6d, 0x0e, 0xf8, 0xc1, 0x94,
+	0xab, 0x02, 0x3f, 0x84, 0x17, 0xfe, 0x38, 0x55, 0x99, 0x4c, 0x15, 0x47, 0x77, 0x61, 0xc7, 0x84,
+	0x5c, 0x02, 0x57, 0xc1, 0xd6, 0x99, 0x9d, 0x2e, 0xa9, 0x7d, 0x13, 0x62, 0x6c, 0xa3, 0xd3, 0x47,
+	0x5f, 0x37, 0x5b, 0xef, 0x7f, 0x7c, 0x1c, 0x80, 0xc0, 0xfa, 0xf0, 0x4d, 0x78, 0x59, 0x37, 0xde,
+	0xe3, 0xc5, 0xbd, 0xdf, 0x28, 0x36, 0x15, 0x9d, 0x83, 0x6d, 0x11, 0xe9, 0xd6, 0xeb, 0x41, 0x5b,
+	0x44, 0x98, 0x43, 0xaf, 0x4e, 0x6c, 0x61, 0xf6, 0x20, 0xac, 0x4e, 0x2d, 0x50, 0x6f, 0x09, 0x50,
+	0x25, 0x1c, 0xad, 0x97, 0x50, 0x81, 0x63, 0xc5, 0xa1, 0x65, 0xda, 0x4d, 0x92, 0x45, 0xa6, 0xfb,
+	0x10, 0x56, 0xef, 0x6f, 0x53, 0xfa, 0xc4, 0x0c, 0x8b, 0x94, 0xc3, 0x22, 0x66, 0x47, 0xec, 0xb0,
+	0xc8, 0x3e, 0x8b, 0xb9, 0xf5, 0x06, 0x8e, 0x13, 0x7f, 0x00, 0xf6, 0x32, 0x7f, 0xa5, 0x2c, 0xb9,
+	0xcc, 0xda, 0x09, 0x2f, 0x53, 0x36, 0x72, 0x78, 0xdb, 0x9a, 0xf7, 0xc6, 0x4a, 0x5e, 0x43, 0xe1,
+	0x02, 0xef, 0x7c, 0x5e, 0x83, 0xa7, 0x34, 0x30, 0x7a, 0x05, 0x60, 0xc7, 0x4c, 0x14, 0x6d, 0x2f,
+	0x41, 0x5a, 0x5c, 0x21, 0x6f, 0xf0, 0x2f, 0x52, 0x93, 0x8b, 0xaf, 0xbf, 0xfc, 0xf4, 0xfd, 0x4d,
+	0x7b, 0x13, 0x75, 0x69, 0xd3, 0x66, 0xa3, 0x77, 0xc0, 0x7d, 0x25, 0x74, 0xab, 0x29, 0xa1, 0x6e,
+	0xc1, 0xbc, 0xe1, 0x7f, 0x38, 0x2c, 0x1a, 0xd1, 0x68, 0x5b, 0xa8, 0x4f, 0x57, 0xfd, 0xa0, 0xe8,
+	0x73, 0x11, 0xbd, 0x40, 0x6f, 0x01, 0x3c, 0x5b, 0xb5, 0xd9, 0x4d, 0x92, 0x66, 0xcc, 0xba, 0x9d,
+	0x6b, 0xc6, 0xac, 0xdd, 0x1f, 0xbc, 0xad, 0x31, 0xaf, 0xa1, 0xde, 0x4a, 0xcc, 0xd1, 0x9d, 0xa3,
+	0x99, 0x0f, 0x8e, 0x67, 0x3e, 0xf8, 0x36, 0xf3, 0xc1, 0xeb, 0xb9, 0xdf, 0x3a, 0x9e, 0xfb, 0xad,
+	0x2f, 0x73, 0xbf, 0xf5, 0xa8, 0xeb, 0x18, 0x9e, 0xb9, 0xee, 0xe2, 0x30, 0xe3, 0x6a, 0xdc, 0xd1,
+	0xff, 0x18, 0xb7, 0x7f, 0x06, 0x00, 0x00, 0xff, 0xff, 0x55, 0xfa, 0x11, 0x97, 0x2c, 0x05, 0x00,
+	0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -159,6 +359,9 @@ const _ = grpc.SupportPackageIsVersion4
 type QueryClient interface {
 	// Parameters queries the parameters of the module.
 	Params(ctx context.Context, in *QueryParamsRequest, opts ...grpc.CallOption) (*QueryParamsResponse, error)
+	// Queries a list of Crudeblock items.
+	Crudeblock(ctx context.Context, in *QueryGetCrudeblockRequest, opts ...grpc.CallOption) (*QueryGetCrudeblockResponse, error)
+	CrudeblockAll(ctx context.Context, in *QueryAllCrudeblockRequest, opts ...grpc.CallOption) (*QueryAllCrudeblockResponse, error)
 }
 
 type queryClient struct {
@@ -178,10 +381,31 @@ func (c *queryClient) Params(ctx context.Context, in *QueryParamsRequest, opts .
 	return out, nil
 }
 
+func (c *queryClient) Crudeblock(ctx context.Context, in *QueryGetCrudeblockRequest, opts ...grpc.CallOption) (*QueryGetCrudeblockResponse, error) {
+	out := new(QueryGetCrudeblockResponse)
+	err := c.cc.Invoke(ctx, "/crudechain.crudechain.Query/Crudeblock", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *queryClient) CrudeblockAll(ctx context.Context, in *QueryAllCrudeblockRequest, opts ...grpc.CallOption) (*QueryAllCrudeblockResponse, error) {
+	out := new(QueryAllCrudeblockResponse)
+	err := c.cc.Invoke(ctx, "/crudechain.crudechain.Query/CrudeblockAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // QueryServer is the server API for Query service.
 type QueryServer interface {
 	// Parameters queries the parameters of the module.
 	Params(context.Context, *QueryParamsRequest) (*QueryParamsResponse, error)
+	// Queries a list of Crudeblock items.
+	Crudeblock(context.Context, *QueryGetCrudeblockRequest) (*QueryGetCrudeblockResponse, error)
+	CrudeblockAll(context.Context, *QueryAllCrudeblockRequest) (*QueryAllCrudeblockResponse, error)
 }
 
 // UnimplementedQueryServer can be embedded to have forward compatible implementations.
@@ -190,6 +414,12 @@ type UnimplementedQueryServer struct {
 
 func (*UnimplementedQueryServer) Params(ctx context.Context, req *QueryParamsRequest) (*QueryParamsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Params not implemented")
+}
+func (*UnimplementedQueryServer) Crudeblock(ctx context.Context, req *QueryGetCrudeblockRequest) (*QueryGetCrudeblockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Crudeblock not implemented")
+}
+func (*UnimplementedQueryServer) CrudeblockAll(ctx context.Context, req *QueryAllCrudeblockRequest) (*QueryAllCrudeblockResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CrudeblockAll not implemented")
 }
 
 func RegisterQueryServer(s grpc1.Server, srv QueryServer) {
@@ -214,6 +444,42 @@ func _Query_Params_Handler(srv interface{}, ctx context.Context, dec func(interf
 	return interceptor(ctx, in, info, handler)
 }
 
+func _Query_Crudeblock_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryGetCrudeblockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).Crudeblock(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/crudechain.crudechain.Query/Crudeblock",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).Crudeblock(ctx, req.(*QueryGetCrudeblockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _Query_CrudeblockAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(QueryAllCrudeblockRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(QueryServer).CrudeblockAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/crudechain.crudechain.Query/CrudeblockAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(QueryServer).CrudeblockAll(ctx, req.(*QueryAllCrudeblockRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var Query_serviceDesc = _Query_serviceDesc
 var _Query_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "crudechain.crudechain.Query",
@@ -222,6 +488,14 @@ var _Query_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Params",
 			Handler:    _Query_Params_Handler,
+		},
+		{
+			MethodName: "Crudeblock",
+			Handler:    _Query_Crudeblock_Handler,
+		},
+		{
+			MethodName: "CrudeblockAll",
+			Handler:    _Query_CrudeblockAll_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
@@ -284,6 +558,151 @@ func (m *QueryParamsResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
 	return len(dAtA) - i, nil
 }
 
+func (m *QueryGetCrudeblockRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetCrudeblockRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetCrudeblockRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Id != 0 {
+		i = encodeVarintQuery(dAtA, i, uint64(m.Id))
+		i--
+		dAtA[i] = 0x8
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryGetCrudeblockResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryGetCrudeblockResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryGetCrudeblockResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	{
+		size, err := m.Crudeblock.MarshalToSizedBuffer(dAtA[:i])
+		if err != nil {
+			return 0, err
+		}
+		i -= size
+		i = encodeVarintQuery(dAtA, i, uint64(size))
+	}
+	i--
+	dAtA[i] = 0xa
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllCrudeblockRequest) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllCrudeblockRequest) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllCrudeblockRequest) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0xa
+	}
+	return len(dAtA) - i, nil
+}
+
+func (m *QueryAllCrudeblockResponse) Marshal() (dAtA []byte, err error) {
+	size := m.Size()
+	dAtA = make([]byte, size)
+	n, err := m.MarshalToSizedBuffer(dAtA[:size])
+	if err != nil {
+		return nil, err
+	}
+	return dAtA[:n], nil
+}
+
+func (m *QueryAllCrudeblockResponse) MarshalTo(dAtA []byte) (int, error) {
+	size := m.Size()
+	return m.MarshalToSizedBuffer(dAtA[:size])
+}
+
+func (m *QueryAllCrudeblockResponse) MarshalToSizedBuffer(dAtA []byte) (int, error) {
+	i := len(dAtA)
+	_ = i
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		{
+			size, err := m.Pagination.MarshalToSizedBuffer(dAtA[:i])
+			if err != nil {
+				return 0, err
+			}
+			i -= size
+			i = encodeVarintQuery(dAtA, i, uint64(size))
+		}
+		i--
+		dAtA[i] = 0x12
+	}
+	if len(m.Crudeblock) > 0 {
+		for iNdEx := len(m.Crudeblock) - 1; iNdEx >= 0; iNdEx-- {
+			{
+				size, err := m.Crudeblock[iNdEx].MarshalToSizedBuffer(dAtA[:i])
+				if err != nil {
+					return 0, err
+				}
+				i -= size
+				i = encodeVarintQuery(dAtA, i, uint64(size))
+			}
+			i--
+			dAtA[i] = 0xa
+		}
+	}
+	return len(dAtA) - i, nil
+}
+
 func encodeVarintQuery(dAtA []byte, offset int, v uint64) int {
 	offset -= sovQuery(v)
 	base := offset
@@ -312,6 +731,61 @@ func (m *QueryParamsResponse) Size() (n int) {
 	_ = l
 	l = m.Params.Size()
 	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryGetCrudeblockRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Id != 0 {
+		n += 1 + sovQuery(uint64(m.Id))
+	}
+	return n
+}
+
+func (m *QueryGetCrudeblockResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	l = m.Crudeblock.Size()
+	n += 1 + l + sovQuery(uint64(l))
+	return n
+}
+
+func (m *QueryAllCrudeblockRequest) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
+	return n
+}
+
+func (m *QueryAllCrudeblockResponse) Size() (n int) {
+	if m == nil {
+		return 0
+	}
+	var l int
+	_ = l
+	if len(m.Crudeblock) > 0 {
+		for _, e := range m.Crudeblock {
+			l = e.Size()
+			n += 1 + l + sovQuery(uint64(l))
+		}
+	}
+	if m.Pagination != nil {
+		l = m.Pagination.Size()
+		n += 1 + l + sovQuery(uint64(l))
+	}
 	return n
 }
 
@@ -430,6 +904,364 @@ func (m *QueryParamsResponse) Unmarshal(dAtA []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			if err := m.Params.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetCrudeblockRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetCrudeblockRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetCrudeblockRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 0 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+			}
+			m.Id = 0
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				m.Id |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryGetCrudeblockResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryGetCrudeblockResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryGetCrudeblockResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Crudeblock", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if err := m.Crudeblock.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllCrudeblockRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllCrudeblockRequest: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllCrudeblockRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageRequest{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		default:
+			iNdEx = preIndex
+			skippy, err := skipQuery(dAtA[iNdEx:])
+			if err != nil {
+				return err
+			}
+			if (skippy < 0) || (iNdEx+skippy) < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if (iNdEx + skippy) > l {
+				return io.ErrUnexpectedEOF
+			}
+			iNdEx += skippy
+		}
+	}
+
+	if iNdEx > l {
+		return io.ErrUnexpectedEOF
+	}
+	return nil
+}
+func (m *QueryAllCrudeblockResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
+	iNdEx := 0
+	for iNdEx < l {
+		preIndex := iNdEx
+		var wire uint64
+		for shift := uint(0); ; shift += 7 {
+			if shift >= 64 {
+				return ErrIntOverflowQuery
+			}
+			if iNdEx >= l {
+				return io.ErrUnexpectedEOF
+			}
+			b := dAtA[iNdEx]
+			iNdEx++
+			wire |= uint64(b&0x7F) << shift
+			if b < 0x80 {
+				break
+			}
+		}
+		fieldNum := int32(wire >> 3)
+		wireType := int(wire & 0x7)
+		if wireType == 4 {
+			return fmt.Errorf("proto: QueryAllCrudeblockResponse: wiretype end group for non-group")
+		}
+		if fieldNum <= 0 {
+			return fmt.Errorf("proto: QueryAllCrudeblockResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+		}
+		switch fieldNum {
+		case 1:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Crudeblock", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			m.Crudeblock = append(m.Crudeblock, Crudeblock{})
+			if err := m.Crudeblock[len(m.Crudeblock)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
+				return err
+			}
+			iNdEx = postIndex
+		case 2:
+			if wireType != 2 {
+				return fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+			}
+			var msglen int
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return ErrIntOverflowQuery
+				}
+				if iNdEx >= l {
+					return io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				msglen |= int(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			if msglen < 0 {
+				return ErrInvalidLengthQuery
+			}
+			postIndex := iNdEx + msglen
+			if postIndex < 0 {
+				return ErrInvalidLengthQuery
+			}
+			if postIndex > l {
+				return io.ErrUnexpectedEOF
+			}
+			if m.Pagination == nil {
+				m.Pagination = &query.PageResponse{}
+			}
+			if err := m.Pagination.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex

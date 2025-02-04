@@ -20,12 +20,47 @@ func TestGenesisState_Validate(t *testing.T) {
 			valid:    true,
 		},
 		{
-			desc:     "valid genesis state",
+			desc: "valid genesis state",
 			genState: &types.GenesisState{
 
+				CrudeblockList: []types.Crudeblock{
+					{
+						Id: 0,
+					},
+					{
+						Id: 1,
+					},
+				},
+				CrudeblockCount: 2,
 				// this line is used by starport scaffolding # types/genesis/validField
 			},
 			valid: true,
+		},
+		{
+			desc: "duplicated crudeblock",
+			genState: &types.GenesisState{
+				CrudeblockList: []types.Crudeblock{
+					{
+						Id: 0,
+					},
+					{
+						Id: 0,
+					},
+				},
+			},
+			valid: false,
+		},
+		{
+			desc: "invalid crudeblock count",
+			genState: &types.GenesisState{
+				CrudeblockList: []types.Crudeblock{
+					{
+						Id: 1,
+					},
+				},
+				CrudeblockCount: 0,
+			},
+			valid: false,
 		},
 		// this line is used by starport scaffolding # types/genesis/testcase
 	}

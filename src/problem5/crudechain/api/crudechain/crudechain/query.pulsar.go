@@ -2,19 +2,18 @@
 package crudechain
 
 import (
-	fmt "fmt"
-	io "io"
-	reflect "reflect"
-	sync "sync"
-
 	_ "cosmossdk.io/api/amino"
-	_ "cosmossdk.io/api/cosmos/base/query/v1beta1"
+	v1beta1 "cosmossdk.io/api/cosmos/base/query/v1beta1"
+	fmt "fmt"
 	runtime "github.com/cosmos/cosmos-proto/runtime"
 	_ "github.com/cosmos/gogoproto/gogoproto"
 	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoiface "google.golang.org/protobuf/runtime/protoiface"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	io "io"
+	reflect "reflect"
+	sync "sync"
 )
 
 var (
@@ -808,6 +807,1853 @@ func (x *fastReflection_QueryParamsResponse) ProtoMethods() *protoiface.Methods 
 	}
 }
 
+var (
+	md_QueryGetCrudeblockRequest    protoreflect.MessageDescriptor
+	fd_QueryGetCrudeblockRequest_id protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_crudechain_crudechain_query_proto_init()
+	md_QueryGetCrudeblockRequest = File_crudechain_crudechain_query_proto.Messages().ByName("QueryGetCrudeblockRequest")
+	fd_QueryGetCrudeblockRequest_id = md_QueryGetCrudeblockRequest.Fields().ByName("id")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryGetCrudeblockRequest)(nil)
+
+type fastReflection_QueryGetCrudeblockRequest QueryGetCrudeblockRequest
+
+func (x *QueryGetCrudeblockRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryGetCrudeblockRequest)(x)
+}
+
+func (x *QueryGetCrudeblockRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_crudechain_crudechain_query_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryGetCrudeblockRequest_messageType fastReflection_QueryGetCrudeblockRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryGetCrudeblockRequest_messageType{}
+
+type fastReflection_QueryGetCrudeblockRequest_messageType struct{}
+
+func (x fastReflection_QueryGetCrudeblockRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryGetCrudeblockRequest)(nil)
+}
+func (x fastReflection_QueryGetCrudeblockRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryGetCrudeblockRequest)
+}
+func (x fastReflection_QueryGetCrudeblockRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetCrudeblockRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryGetCrudeblockRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetCrudeblockRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryGetCrudeblockRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryGetCrudeblockRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryGetCrudeblockRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryGetCrudeblockRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryGetCrudeblockRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryGetCrudeblockRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryGetCrudeblockRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Id != uint64(0) {
+		value := protoreflect.ValueOfUint64(x.Id)
+		if !f(fd_QueryGetCrudeblockRequest_id, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryGetCrudeblockRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockRequest.id":
+		return x.Id != uint64(0)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetCrudeblockRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockRequest.id":
+		x.Id = uint64(0)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryGetCrudeblockRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockRequest.id":
+		value := x.Id
+		return protoreflect.ValueOfUint64(value)
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetCrudeblockRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockRequest.id":
+		x.Id = value.Uint()
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetCrudeblockRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockRequest.id":
+		panic(fmt.Errorf("field id of message crudechain.crudechain.QueryGetCrudeblockRequest is not mutable"))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryGetCrudeblockRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockRequest.id":
+		return protoreflect.ValueOfUint64(uint64(0))
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryGetCrudeblockRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in crudechain.crudechain.QueryGetCrudeblockRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryGetCrudeblockRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetCrudeblockRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryGetCrudeblockRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryGetCrudeblockRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryGetCrudeblockRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Id != 0 {
+			n += 1 + runtime.Sov(uint64(x.Id))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetCrudeblockRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Id != 0 {
+			i = runtime.EncodeVarint(dAtA, i, uint64(x.Id))
+			i--
+			dAtA[i] = 0x8
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetCrudeblockRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetCrudeblockRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetCrudeblockRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Id", wireType)
+				}
+				x.Id = 0
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					x.Id |= uint64(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryGetCrudeblockResponse            protoreflect.MessageDescriptor
+	fd_QueryGetCrudeblockResponse_Crudeblock protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_crudechain_crudechain_query_proto_init()
+	md_QueryGetCrudeblockResponse = File_crudechain_crudechain_query_proto.Messages().ByName("QueryGetCrudeblockResponse")
+	fd_QueryGetCrudeblockResponse_Crudeblock = md_QueryGetCrudeblockResponse.Fields().ByName("Crudeblock")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryGetCrudeblockResponse)(nil)
+
+type fastReflection_QueryGetCrudeblockResponse QueryGetCrudeblockResponse
+
+func (x *QueryGetCrudeblockResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryGetCrudeblockResponse)(x)
+}
+
+func (x *QueryGetCrudeblockResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_crudechain_crudechain_query_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryGetCrudeblockResponse_messageType fastReflection_QueryGetCrudeblockResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryGetCrudeblockResponse_messageType{}
+
+type fastReflection_QueryGetCrudeblockResponse_messageType struct{}
+
+func (x fastReflection_QueryGetCrudeblockResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryGetCrudeblockResponse)(nil)
+}
+func (x fastReflection_QueryGetCrudeblockResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryGetCrudeblockResponse)
+}
+func (x fastReflection_QueryGetCrudeblockResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetCrudeblockResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryGetCrudeblockResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryGetCrudeblockResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryGetCrudeblockResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryGetCrudeblockResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryGetCrudeblockResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryGetCrudeblockResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryGetCrudeblockResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryGetCrudeblockResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryGetCrudeblockResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Crudeblock != nil {
+		value := protoreflect.ValueOfMessage(x.Crudeblock.ProtoReflect())
+		if !f(fd_QueryGetCrudeblockResponse_Crudeblock, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryGetCrudeblockResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockResponse.Crudeblock":
+		return x.Crudeblock != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetCrudeblockResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockResponse.Crudeblock":
+		x.Crudeblock = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryGetCrudeblockResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockResponse.Crudeblock":
+		value := x.Crudeblock
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetCrudeblockResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockResponse.Crudeblock":
+		x.Crudeblock = value.Message().Interface().(*Crudeblock)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetCrudeblockResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockResponse.Crudeblock":
+		if x.Crudeblock == nil {
+			x.Crudeblock = new(Crudeblock)
+		}
+		return protoreflect.ValueOfMessage(x.Crudeblock.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryGetCrudeblockResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryGetCrudeblockResponse.Crudeblock":
+		m := new(Crudeblock)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryGetCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryGetCrudeblockResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryGetCrudeblockResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in crudechain.crudechain.QueryGetCrudeblockResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryGetCrudeblockResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryGetCrudeblockResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryGetCrudeblockResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryGetCrudeblockResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryGetCrudeblockResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Crudeblock != nil {
+			l = options.Size(x.Crudeblock)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetCrudeblockResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Crudeblock != nil {
+			encoded, err := options.Marshal(x.Crudeblock)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryGetCrudeblockResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetCrudeblockResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryGetCrudeblockResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Crudeblock", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Crudeblock == nil {
+					x.Crudeblock = &Crudeblock{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Crudeblock); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var (
+	md_QueryAllCrudeblockRequest            protoreflect.MessageDescriptor
+	fd_QueryAllCrudeblockRequest_pagination protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_crudechain_crudechain_query_proto_init()
+	md_QueryAllCrudeblockRequest = File_crudechain_crudechain_query_proto.Messages().ByName("QueryAllCrudeblockRequest")
+	fd_QueryAllCrudeblockRequest_pagination = md_QueryAllCrudeblockRequest.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryAllCrudeblockRequest)(nil)
+
+type fastReflection_QueryAllCrudeblockRequest QueryAllCrudeblockRequest
+
+func (x *QueryAllCrudeblockRequest) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryAllCrudeblockRequest)(x)
+}
+
+func (x *QueryAllCrudeblockRequest) slowProtoReflect() protoreflect.Message {
+	mi := &file_crudechain_crudechain_query_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryAllCrudeblockRequest_messageType fastReflection_QueryAllCrudeblockRequest_messageType
+var _ protoreflect.MessageType = fastReflection_QueryAllCrudeblockRequest_messageType{}
+
+type fastReflection_QueryAllCrudeblockRequest_messageType struct{}
+
+func (x fastReflection_QueryAllCrudeblockRequest_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryAllCrudeblockRequest)(nil)
+}
+func (x fastReflection_QueryAllCrudeblockRequest_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryAllCrudeblockRequest)
+}
+func (x fastReflection_QueryAllCrudeblockRequest_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryAllCrudeblockRequest
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryAllCrudeblockRequest) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryAllCrudeblockRequest
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryAllCrudeblockRequest) Type() protoreflect.MessageType {
+	return _fastReflection_QueryAllCrudeblockRequest_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryAllCrudeblockRequest) New() protoreflect.Message {
+	return new(fastReflection_QueryAllCrudeblockRequest)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryAllCrudeblockRequest) Interface() protoreflect.ProtoMessage {
+	return (*QueryAllCrudeblockRequest)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryAllCrudeblockRequest) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryAllCrudeblockRequest_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryAllCrudeblockRequest) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockRequest.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryAllCrudeblockRequest) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockRequest.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryAllCrudeblockRequest) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockRequest.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockRequest does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryAllCrudeblockRequest) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockRequest.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageRequest)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryAllCrudeblockRequest) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockRequest.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageRequest)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryAllCrudeblockRequest) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockRequest.pagination":
+		m := new(v1beta1.PageRequest)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockRequest"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockRequest does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryAllCrudeblockRequest) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in crudechain.crudechain.QueryAllCrudeblockRequest", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryAllCrudeblockRequest) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryAllCrudeblockRequest) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryAllCrudeblockRequest) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryAllCrudeblockRequest) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryAllCrudeblockRequest)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryAllCrudeblockRequest)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0xa
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryAllCrudeblockRequest)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryAllCrudeblockRequest: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryAllCrudeblockRequest: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageRequest{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
+var _ protoreflect.List = (*_QueryAllCrudeblockResponse_1_list)(nil)
+
+type _QueryAllCrudeblockResponse_1_list struct {
+	list *[]*Crudeblock
+}
+
+func (x *_QueryAllCrudeblockResponse_1_list) Len() int {
+	if x.list == nil {
+		return 0
+	}
+	return len(*x.list)
+}
+
+func (x *_QueryAllCrudeblockResponse_1_list) Get(i int) protoreflect.Value {
+	return protoreflect.ValueOfMessage((*x.list)[i].ProtoReflect())
+}
+
+func (x *_QueryAllCrudeblockResponse_1_list) Set(i int, value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*Crudeblock)
+	(*x.list)[i] = concreteValue
+}
+
+func (x *_QueryAllCrudeblockResponse_1_list) Append(value protoreflect.Value) {
+	valueUnwrapped := value.Message()
+	concreteValue := valueUnwrapped.Interface().(*Crudeblock)
+	*x.list = append(*x.list, concreteValue)
+}
+
+func (x *_QueryAllCrudeblockResponse_1_list) AppendMutable() protoreflect.Value {
+	v := new(Crudeblock)
+	*x.list = append(*x.list, v)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryAllCrudeblockResponse_1_list) Truncate(n int) {
+	for i := n; i < len(*x.list); i++ {
+		(*x.list)[i] = nil
+	}
+	*x.list = (*x.list)[:n]
+}
+
+func (x *_QueryAllCrudeblockResponse_1_list) NewElement() protoreflect.Value {
+	v := new(Crudeblock)
+	return protoreflect.ValueOfMessage(v.ProtoReflect())
+}
+
+func (x *_QueryAllCrudeblockResponse_1_list) IsValid() bool {
+	return x.list != nil
+}
+
+var (
+	md_QueryAllCrudeblockResponse            protoreflect.MessageDescriptor
+	fd_QueryAllCrudeblockResponse_Crudeblock protoreflect.FieldDescriptor
+	fd_QueryAllCrudeblockResponse_pagination protoreflect.FieldDescriptor
+)
+
+func init() {
+	file_crudechain_crudechain_query_proto_init()
+	md_QueryAllCrudeblockResponse = File_crudechain_crudechain_query_proto.Messages().ByName("QueryAllCrudeblockResponse")
+	fd_QueryAllCrudeblockResponse_Crudeblock = md_QueryAllCrudeblockResponse.Fields().ByName("Crudeblock")
+	fd_QueryAllCrudeblockResponse_pagination = md_QueryAllCrudeblockResponse.Fields().ByName("pagination")
+}
+
+var _ protoreflect.Message = (*fastReflection_QueryAllCrudeblockResponse)(nil)
+
+type fastReflection_QueryAllCrudeblockResponse QueryAllCrudeblockResponse
+
+func (x *QueryAllCrudeblockResponse) ProtoReflect() protoreflect.Message {
+	return (*fastReflection_QueryAllCrudeblockResponse)(x)
+}
+
+func (x *QueryAllCrudeblockResponse) slowProtoReflect() protoreflect.Message {
+	mi := &file_crudechain_crudechain_query_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+var _fastReflection_QueryAllCrudeblockResponse_messageType fastReflection_QueryAllCrudeblockResponse_messageType
+var _ protoreflect.MessageType = fastReflection_QueryAllCrudeblockResponse_messageType{}
+
+type fastReflection_QueryAllCrudeblockResponse_messageType struct{}
+
+func (x fastReflection_QueryAllCrudeblockResponse_messageType) Zero() protoreflect.Message {
+	return (*fastReflection_QueryAllCrudeblockResponse)(nil)
+}
+func (x fastReflection_QueryAllCrudeblockResponse_messageType) New() protoreflect.Message {
+	return new(fastReflection_QueryAllCrudeblockResponse)
+}
+func (x fastReflection_QueryAllCrudeblockResponse_messageType) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryAllCrudeblockResponse
+}
+
+// Descriptor returns message descriptor, which contains only the protobuf
+// type information for the message.
+func (x *fastReflection_QueryAllCrudeblockResponse) Descriptor() protoreflect.MessageDescriptor {
+	return md_QueryAllCrudeblockResponse
+}
+
+// Type returns the message type, which encapsulates both Go and protobuf
+// type information. If the Go type information is not needed,
+// it is recommended that the message descriptor be used instead.
+func (x *fastReflection_QueryAllCrudeblockResponse) Type() protoreflect.MessageType {
+	return _fastReflection_QueryAllCrudeblockResponse_messageType
+}
+
+// New returns a newly allocated and mutable empty message.
+func (x *fastReflection_QueryAllCrudeblockResponse) New() protoreflect.Message {
+	return new(fastReflection_QueryAllCrudeblockResponse)
+}
+
+// Interface unwraps the message reflection interface and
+// returns the underlying ProtoMessage interface.
+func (x *fastReflection_QueryAllCrudeblockResponse) Interface() protoreflect.ProtoMessage {
+	return (*QueryAllCrudeblockResponse)(x)
+}
+
+// Range iterates over every populated field in an undefined order,
+// calling f for each field descriptor and value encountered.
+// Range returns immediately if f returns false.
+// While iterating, mutating operations may only be performed
+// on the current field descriptor.
+func (x *fastReflection_QueryAllCrudeblockResponse) Range(f func(protoreflect.FieldDescriptor, protoreflect.Value) bool) {
+	if len(x.Crudeblock) != 0 {
+		value := protoreflect.ValueOfList(&_QueryAllCrudeblockResponse_1_list{list: &x.Crudeblock})
+		if !f(fd_QueryAllCrudeblockResponse_Crudeblock, value) {
+			return
+		}
+	}
+	if x.Pagination != nil {
+		value := protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+		if !f(fd_QueryAllCrudeblockResponse_pagination, value) {
+			return
+		}
+	}
+}
+
+// Has reports whether a field is populated.
+//
+// Some fields have the property of nullability where it is possible to
+// distinguish between the default value of a field and whether the field
+// was explicitly populated with the default value. Singular message fields,
+// member fields of a oneof, and proto2 scalar fields are nullable. Such
+// fields are populated only if explicitly set.
+//
+// In other cases (aside from the nullable cases above),
+// a proto3 scalar field is populated if it contains a non-zero value, and
+// a repeated field is populated if it is non-empty.
+func (x *fastReflection_QueryAllCrudeblockResponse) Has(fd protoreflect.FieldDescriptor) bool {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.Crudeblock":
+		return len(x.Crudeblock) != 0
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.pagination":
+		return x.Pagination != nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Clear clears the field such that a subsequent Has call reports false.
+//
+// Clearing an extension field clears both the extension type and value
+// associated with the given field number.
+//
+// Clear is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryAllCrudeblockResponse) Clear(fd protoreflect.FieldDescriptor) {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.Crudeblock":
+		x.Crudeblock = nil
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.pagination":
+		x.Pagination = nil
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Get retrieves the value for a field.
+//
+// For unpopulated scalars, it returns the default value, where
+// the default value of a bytes scalar is guaranteed to be a copy.
+// For unpopulated composite types, it returns an empty, read-only view
+// of the value; to obtain a mutable reference, use Mutable.
+func (x *fastReflection_QueryAllCrudeblockResponse) Get(descriptor protoreflect.FieldDescriptor) protoreflect.Value {
+	switch descriptor.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.Crudeblock":
+		if len(x.Crudeblock) == 0 {
+			return protoreflect.ValueOfList(&_QueryAllCrudeblockResponse_1_list{})
+		}
+		listValue := &_QueryAllCrudeblockResponse_1_list{list: &x.Crudeblock}
+		return protoreflect.ValueOfList(listValue)
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.pagination":
+		value := x.Pagination
+		return protoreflect.ValueOfMessage(value.ProtoReflect())
+	default:
+		if descriptor.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockResponse does not contain field %s", descriptor.FullName()))
+	}
+}
+
+// Set stores the value for a field.
+//
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType.
+// When setting a composite type, it is unspecified whether the stored value
+// aliases the source's memory in any way. If the composite value is an
+// empty, read-only value, then it panics.
+//
+// Set is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryAllCrudeblockResponse) Set(fd protoreflect.FieldDescriptor, value protoreflect.Value) {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.Crudeblock":
+		lv := value.List()
+		clv := lv.(*_QueryAllCrudeblockResponse_1_list)
+		x.Crudeblock = *clv.list
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.pagination":
+		x.Pagination = value.Message().Interface().(*v1beta1.PageResponse)
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// Mutable returns a mutable reference to a composite type.
+//
+// If the field is unpopulated, it may allocate a composite value.
+// For a field belonging to a oneof, it implicitly clears any other field
+// that may be currently set within the same oneof.
+// For extension fields, it implicitly stores the provided ExtensionType
+// if not already stored.
+// It panics if the field does not contain a composite type.
+//
+// Mutable is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryAllCrudeblockResponse) Mutable(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.Crudeblock":
+		if x.Crudeblock == nil {
+			x.Crudeblock = []*Crudeblock{}
+		}
+		value := &_QueryAllCrudeblockResponse_1_list{list: &x.Crudeblock}
+		return protoreflect.ValueOfList(value)
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.pagination":
+		if x.Pagination == nil {
+			x.Pagination = new(v1beta1.PageResponse)
+		}
+		return protoreflect.ValueOfMessage(x.Pagination.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// NewField returns a new value that is assignable to the field
+// for the given descriptor. For scalars, this returns the default value.
+// For lists, maps, and messages, this returns a new, empty, mutable value.
+func (x *fastReflection_QueryAllCrudeblockResponse) NewField(fd protoreflect.FieldDescriptor) protoreflect.Value {
+	switch fd.FullName() {
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.Crudeblock":
+		list := []*Crudeblock{}
+		return protoreflect.ValueOfList(&_QueryAllCrudeblockResponse_1_list{list: &list})
+	case "crudechain.crudechain.QueryAllCrudeblockResponse.pagination":
+		m := new(v1beta1.PageResponse)
+		return protoreflect.ValueOfMessage(m.ProtoReflect())
+	default:
+		if fd.IsExtension() {
+			panic(fmt.Errorf("proto3 declared messages do not support extensions: crudechain.crudechain.QueryAllCrudeblockResponse"))
+		}
+		panic(fmt.Errorf("message crudechain.crudechain.QueryAllCrudeblockResponse does not contain field %s", fd.FullName()))
+	}
+}
+
+// WhichOneof reports which field within the oneof is populated,
+// returning nil if none are populated.
+// It panics if the oneof descriptor does not belong to this message.
+func (x *fastReflection_QueryAllCrudeblockResponse) WhichOneof(d protoreflect.OneofDescriptor) protoreflect.FieldDescriptor {
+	switch d.FullName() {
+	default:
+		panic(fmt.Errorf("%s is not a oneof field in crudechain.crudechain.QueryAllCrudeblockResponse", d.FullName()))
+	}
+	panic("unreachable")
+}
+
+// GetUnknown retrieves the entire list of unknown fields.
+// The caller may only mutate the contents of the RawFields
+// if the mutated bytes are stored back into the message with SetUnknown.
+func (x *fastReflection_QueryAllCrudeblockResponse) GetUnknown() protoreflect.RawFields {
+	return x.unknownFields
+}
+
+// SetUnknown stores an entire list of unknown fields.
+// The raw fields must be syntactically valid according to the wire format.
+// An implementation may panic if this is not the case.
+// Once stored, the caller must not mutate the content of the RawFields.
+// An empty RawFields may be passed to clear the fields.
+//
+// SetUnknown is a mutating operation and unsafe for concurrent use.
+func (x *fastReflection_QueryAllCrudeblockResponse) SetUnknown(fields protoreflect.RawFields) {
+	x.unknownFields = fields
+}
+
+// IsValid reports whether the message is valid.
+//
+// An invalid message is an empty, read-only value.
+//
+// An invalid message often corresponds to a nil pointer of the concrete
+// message type, but the details are implementation dependent.
+// Validity is not part of the protobuf data model, and may not
+// be preserved in marshaling or other operations.
+func (x *fastReflection_QueryAllCrudeblockResponse) IsValid() bool {
+	return x != nil
+}
+
+// ProtoMethods returns optional fastReflectionFeature-path implementations of various operations.
+// This method may return nil.
+//
+// The returned methods type is identical to
+// "google.golang.org/protobuf/runtime/protoiface".Methods.
+// Consult the protoiface package documentation for details.
+func (x *fastReflection_QueryAllCrudeblockResponse) ProtoMethods() *protoiface.Methods {
+	size := func(input protoiface.SizeInput) protoiface.SizeOutput {
+		x := input.Message.Interface().(*QueryAllCrudeblockResponse)
+		if x == nil {
+			return protoiface.SizeOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Size:              0,
+			}
+		}
+		options := runtime.SizeInputToOptions(input)
+		_ = options
+		var n int
+		var l int
+		_ = l
+		if len(x.Crudeblock) > 0 {
+			for _, e := range x.Crudeblock {
+				l = options.Size(e)
+				n += 1 + l + runtime.Sov(uint64(l))
+			}
+		}
+		if x.Pagination != nil {
+			l = options.Size(x.Pagination)
+			n += 1 + l + runtime.Sov(uint64(l))
+		}
+		if x.unknownFields != nil {
+			n += len(x.unknownFields)
+		}
+		return protoiface.SizeOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Size:              n,
+		}
+	}
+
+	marshal := func(input protoiface.MarshalInput) (protoiface.MarshalOutput, error) {
+		x := input.Message.Interface().(*QueryAllCrudeblockResponse)
+		if x == nil {
+			return protoiface.MarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Buf:               input.Buf,
+			}, nil
+		}
+		options := runtime.MarshalInputToOptions(input)
+		_ = options
+		size := options.Size(x)
+		dAtA := make([]byte, size)
+		i := len(dAtA)
+		_ = i
+		var l int
+		_ = l
+		if x.unknownFields != nil {
+			i -= len(x.unknownFields)
+			copy(dAtA[i:], x.unknownFields)
+		}
+		if x.Pagination != nil {
+			encoded, err := options.Marshal(x.Pagination)
+			if err != nil {
+				return protoiface.MarshalOutput{
+					NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+					Buf:               input.Buf,
+				}, err
+			}
+			i -= len(encoded)
+			copy(dAtA[i:], encoded)
+			i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+			i--
+			dAtA[i] = 0x12
+		}
+		if len(x.Crudeblock) > 0 {
+			for iNdEx := len(x.Crudeblock) - 1; iNdEx >= 0; iNdEx-- {
+				encoded, err := options.Marshal(x.Crudeblock[iNdEx])
+				if err != nil {
+					return protoiface.MarshalOutput{
+						NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+						Buf:               input.Buf,
+					}, err
+				}
+				i -= len(encoded)
+				copy(dAtA[i:], encoded)
+				i = runtime.EncodeVarint(dAtA, i, uint64(len(encoded)))
+				i--
+				dAtA[i] = 0xa
+			}
+		}
+		if input.Buf != nil {
+			input.Buf = append(input.Buf, dAtA...)
+		} else {
+			input.Buf = dAtA
+		}
+		return protoiface.MarshalOutput{
+			NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+			Buf:               input.Buf,
+		}, nil
+	}
+	unmarshal := func(input protoiface.UnmarshalInput) (protoiface.UnmarshalOutput, error) {
+		x := input.Message.Interface().(*QueryAllCrudeblockResponse)
+		if x == nil {
+			return protoiface.UnmarshalOutput{
+				NoUnkeyedLiterals: input.NoUnkeyedLiterals,
+				Flags:             input.Flags,
+			}, nil
+		}
+		options := runtime.UnmarshalInputToOptions(input)
+		_ = options
+		dAtA := input.Buf
+		l := len(dAtA)
+		iNdEx := 0
+		for iNdEx < l {
+			preIndex := iNdEx
+			var wire uint64
+			for shift := uint(0); ; shift += 7 {
+				if shift >= 64 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+				}
+				if iNdEx >= l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				b := dAtA[iNdEx]
+				iNdEx++
+				wire |= uint64(b&0x7F) << shift
+				if b < 0x80 {
+					break
+				}
+			}
+			fieldNum := int32(wire >> 3)
+			wireType := int(wire & 0x7)
+			if wireType == 4 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryAllCrudeblockResponse: wiretype end group for non-group")
+			}
+			if fieldNum <= 0 {
+				return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: QueryAllCrudeblockResponse: illegal tag %d (wire type %d)", fieldNum, wire)
+			}
+			switch fieldNum {
+			case 1:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Crudeblock", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				x.Crudeblock = append(x.Crudeblock, &Crudeblock{})
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Crudeblock[len(x.Crudeblock)-1]); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			case 2:
+				if wireType != 2 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, fmt.Errorf("proto: wrong wireType = %d for field Pagination", wireType)
+				}
+				var msglen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrIntOverflow
+					}
+					if iNdEx >= l {
+						return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					msglen |= int(b&0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				if msglen < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				postIndex := iNdEx + msglen
+				if postIndex < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if postIndex > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if x.Pagination == nil {
+					x.Pagination = &v1beta1.PageResponse{}
+				}
+				if err := options.Unmarshal(dAtA[iNdEx:postIndex], x.Pagination); err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				iNdEx = postIndex
+			default:
+				iNdEx = preIndex
+				skippy, err := runtime.Skip(dAtA[iNdEx:])
+				if err != nil {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, err
+				}
+				if (skippy < 0) || (iNdEx+skippy) < 0 {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, runtime.ErrInvalidLength
+				}
+				if (iNdEx + skippy) > l {
+					return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+				}
+				if !options.DiscardUnknown {
+					x.unknownFields = append(x.unknownFields, dAtA[iNdEx:iNdEx+skippy]...)
+				}
+				iNdEx += skippy
+			}
+		}
+
+		if iNdEx > l {
+			return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, io.ErrUnexpectedEOF
+		}
+		return protoiface.UnmarshalOutput{NoUnkeyedLiterals: input.NoUnkeyedLiterals, Flags: input.Flags}, nil
+	}
+	return &protoiface.Methods{
+		NoUnkeyedLiterals: struct{}{},
+		Flags:             protoiface.SupportMarshalDeterministic | protoiface.SupportUnmarshalDiscardUnknown,
+		Size:              size,
+		Marshal:           marshal,
+		Unmarshal:         unmarshal,
+		Merge:             nil,
+		CheckInitialized:  nil,
+	}
+}
+
 // Code generated by protoc-gen-go. DO NOT EDIT.
 // versions:
 // 	protoc-gen-go v1.27.0
@@ -885,6 +2731,154 @@ func (x *QueryParamsResponse) GetParams() *Params {
 	return nil
 }
 
+type QueryGetCrudeblockRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id uint64 `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *QueryGetCrudeblockRequest) Reset() {
+	*x = QueryGetCrudeblockRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_crudechain_crudechain_query_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryGetCrudeblockRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGetCrudeblockRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryGetCrudeblockRequest.ProtoReflect.Descriptor instead.
+func (*QueryGetCrudeblockRequest) Descriptor() ([]byte, []int) {
+	return file_crudechain_crudechain_query_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *QueryGetCrudeblockRequest) GetId() uint64 {
+	if x != nil {
+		return x.Id
+	}
+	return 0
+}
+
+type QueryGetCrudeblockResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Crudeblock *Crudeblock `protobuf:"bytes,1,opt,name=Crudeblock,proto3" json:"Crudeblock,omitempty"`
+}
+
+func (x *QueryGetCrudeblockResponse) Reset() {
+	*x = QueryGetCrudeblockResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_crudechain_crudechain_query_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryGetCrudeblockResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryGetCrudeblockResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryGetCrudeblockResponse.ProtoReflect.Descriptor instead.
+func (*QueryGetCrudeblockResponse) Descriptor() ([]byte, []int) {
+	return file_crudechain_crudechain_query_proto_rawDescGZIP(), []int{3}
+}
+
+func (x *QueryGetCrudeblockResponse) GetCrudeblock() *Crudeblock {
+	if x != nil {
+		return x.Crudeblock
+	}
+	return nil
+}
+
+type QueryAllCrudeblockRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Pagination *v1beta1.PageRequest `protobuf:"bytes,1,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryAllCrudeblockRequest) Reset() {
+	*x = QueryAllCrudeblockRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_crudechain_crudechain_query_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryAllCrudeblockRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryAllCrudeblockRequest) ProtoMessage() {}
+
+// Deprecated: Use QueryAllCrudeblockRequest.ProtoReflect.Descriptor instead.
+func (*QueryAllCrudeblockRequest) Descriptor() ([]byte, []int) {
+	return file_crudechain_crudechain_query_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *QueryAllCrudeblockRequest) GetPagination() *v1beta1.PageRequest {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
+type QueryAllCrudeblockResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Crudeblock []*Crudeblock         `protobuf:"bytes,1,rep,name=Crudeblock,proto3" json:"Crudeblock,omitempty"`
+	Pagination *v1beta1.PageResponse `protobuf:"bytes,2,opt,name=pagination,proto3" json:"pagination,omitempty"`
+}
+
+func (x *QueryAllCrudeblockResponse) Reset() {
+	*x = QueryAllCrudeblockResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_crudechain_crudechain_query_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *QueryAllCrudeblockResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*QueryAllCrudeblockResponse) ProtoMessage() {}
+
+// Deprecated: Use QueryAllCrudeblockResponse.ProtoReflect.Descriptor instead.
+func (*QueryAllCrudeblockResponse) Descriptor() ([]byte, []int) {
+	return file_crudechain_crudechain_query_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *QueryAllCrudeblockResponse) GetCrudeblock() []*Crudeblock {
+	if x != nil {
+		return x.Crudeblock
+	}
+	return nil
+}
+
+func (x *QueryAllCrudeblockResponse) GetPagination() *v1beta1.PageResponse {
+	if x != nil {
+		return x.Pagination
+	}
+	return nil
+}
+
 var File_crudechain_crudechain_query_proto protoreflect.FileDescriptor
 
 var file_crudechain_crudechain_query_proto_rawDesc = []byte{
@@ -901,35 +2895,85 @@ var file_crudechain_crudechain_query_proto_rawDesc = []byte{
 	0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x1a, 0x22, 0x63,
 	0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63,
 	0x68, 0x61, 0x69, 0x6e, 0x2f, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74,
-	0x6f, 0x22, 0x14, 0x0a, 0x12, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73,
-	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x57, 0x0a, 0x13, 0x51, 0x75, 0x65, 0x72, 0x79,
-	0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x40,
-	0x0a, 0x06, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d,
-	0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64,
-	0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x42, 0x09, 0xc8,
-	0xde, 0x1f, 0x00, 0xa8, 0xe7, 0xb0, 0x2a, 0x01, 0x52, 0x06, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73,
-	0x32, 0x90, 0x01, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72, 0x79, 0x12, 0x86, 0x01, 0x0a, 0x06, 0x50,
-	0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x29, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61,
-	0x69, 0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x51, 0x75,
-	0x65, 0x72, 0x79, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
-	0x1a, 0x2a, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x63, 0x72,
-	0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x61,
-	0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x25, 0x82, 0xd3,
-	0xe4, 0x93, 0x02, 0x1f, 0x12, 0x1d, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69,
-	0x6e, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x70, 0x61, 0x72,
-	0x61, 0x6d, 0x73, 0x42, 0xc2, 0x01, 0x0a, 0x19, 0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x72, 0x75, 0x64,
-	0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69,
-	0x6e, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a,
-	0x24, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x61, 0x70, 0x69, 0x2f,
-	0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65,
-	0x63, 0x68, 0x61, 0x69, 0x6e, 0xa2, 0x02, 0x03, 0x43, 0x43, 0x58, 0xaa, 0x02, 0x15, 0x43, 0x72,
-	0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68,
-	0x61, 0x69, 0x6e, 0xca, 0x02, 0x15, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e,
-	0x5c, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0xe2, 0x02, 0x21, 0x43, 0x72,
+	0x6f, 0x1a, 0x26, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x63, 0x72,
+	0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c,
+	0x6f, 0x63, 0x6b, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x14, 0x0a, 0x12, 0x51, 0x75, 0x65,
+	0x72, 0x79, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22,
+	0x57, 0x0a, 0x13, 0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x40, 0x0a, 0x06, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x1d, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68,
+	0x61, 0x69, 0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x50,
+	0x61, 0x72, 0x61, 0x6d, 0x73, 0x42, 0x09, 0xc8, 0xde, 0x1f, 0x00, 0xa8, 0xe7, 0xb0, 0x2a, 0x01,
+	0x52, 0x06, 0x70, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x22, 0x2b, 0x0a, 0x19, 0x51, 0x75, 0x65, 0x72,
+	0x79, 0x47, 0x65, 0x74, 0x43, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x04, 0x52, 0x02, 0x69, 0x64, 0x22, 0x65, 0x0a, 0x1a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x47, 0x65,
+	0x74, 0x43, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x47, 0x0a, 0x0a, 0x43, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63,
+	0x6b, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63,
+	0x68, 0x61, 0x69, 0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e,
+	0x43, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x42, 0x04, 0xc8, 0xde, 0x1f, 0x00,
+	0x52, 0x0a, 0x43, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x22, 0x63, 0x0a, 0x19,
+	0x51, 0x75, 0x65, 0x72, 0x79, 0x41, 0x6c, 0x6c, 0x43, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f,
+	0x63, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x46, 0x0a, 0x0a, 0x70, 0x61, 0x67,
+	0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x26, 0x2e,
+	0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72,
+	0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f,
+	0x6e, 0x22, 0xae, 0x01, 0x0a, 0x1a, 0x51, 0x75, 0x65, 0x72, 0x79, 0x41, 0x6c, 0x6c, 0x43, 0x72,
+	0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x47, 0x0a, 0x0a, 0x43, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x18, 0x01,
+	0x20, 0x03, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69,
+	0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x43, 0x72, 0x75,
+	0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x42, 0x04, 0xc8, 0xde, 0x1f, 0x00, 0x52, 0x0a, 0x43,
+	0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x12, 0x47, 0x0a, 0x0a, 0x70, 0x61, 0x67,
+	0x69, 0x6e, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x27, 0x2e,
+	0x63, 0x6f, 0x73, 0x6d, 0x6f, 0x73, 0x2e, 0x62, 0x61, 0x73, 0x65, 0x2e, 0x71, 0x75, 0x65, 0x72,
+	0x79, 0x2e, 0x76, 0x31, 0x62, 0x65, 0x74, 0x61, 0x31, 0x2e, 0x50, 0x61, 0x67, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x52, 0x0a, 0x70, 0x61, 0x67, 0x69, 0x6e, 0x61, 0x74, 0x69,
+	0x6f, 0x6e, 0x32, 0xd6, 0x03, 0x0a, 0x05, 0x51, 0x75, 0x65, 0x72, 0x79, 0x12, 0x86, 0x01, 0x0a,
+	0x06, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0x29, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63,
+	0x68, 0x61, 0x69, 0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e,
+	0x51, 0x75, 0x65, 0x72, 0x79, 0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x2a, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e,
+	0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x50, 0x61, 0x72, 0x61, 0x6d, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x25,
+	0x82, 0xd3, 0xe4, 0x93, 0x02, 0x1f, 0x12, 0x1d, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68,
+	0x61, 0x69, 0x6e, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x70,
+	0x61, 0x72, 0x61, 0x6d, 0x73, 0x12, 0xa1, 0x01, 0x0a, 0x0a, 0x43, 0x72, 0x75, 0x64, 0x65, 0x62,
+	0x6c, 0x6f, 0x63, 0x6b, 0x12, 0x30, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69,
+	0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x51, 0x75, 0x65,
+	0x72, 0x79, 0x47, 0x65, 0x74, 0x43, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x31, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68,
+	0x61, 0x69, 0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x51,
+	0x75, 0x65, 0x72, 0x79, 0x47, 0x65, 0x74, 0x43, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63,
+	0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x2e, 0x82, 0xd3, 0xe4, 0x93, 0x02,
+	0x28, 0x12, 0x26, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x63,
+	0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x62,
+	0x6c, 0x6f, 0x63, 0x6b, 0x2f, 0x7b, 0x69, 0x64, 0x7d, 0x12, 0x9f, 0x01, 0x0a, 0x0d, 0x43, 0x72,
+	0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x41, 0x6c, 0x6c, 0x12, 0x30, 0x2e, 0x63, 0x72,
+	0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68,
+	0x61, 0x69, 0x6e, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x41, 0x6c, 0x6c, 0x43, 0x72, 0x75, 0x64,
+	0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x31, 0x2e,
+	0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65,
+	0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x51, 0x75, 0x65, 0x72, 0x79, 0x41, 0x6c, 0x6c, 0x43, 0x72,
+	0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x29, 0x82, 0xd3, 0xe4, 0x93, 0x02, 0x23, 0x12, 0x21, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65,
+	0x63, 0x68, 0x61, 0x69, 0x6e, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e,
+	0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x62, 0x6c, 0x6f, 0x63, 0x6b, 0x42, 0xc2, 0x01, 0x0a, 0x19,
+	0x63, 0x6f, 0x6d, 0x2e, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x2e, 0x63,
+	0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x42, 0x0a, 0x51, 0x75, 0x65, 0x72, 0x79,
+	0x50, 0x72, 0x6f, 0x74, 0x6f, 0x50, 0x01, 0x5a, 0x24, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68,
+	0x61, 0x69, 0x6e, 0x2f, 0x61, 0x70, 0x69, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61,
+	0x69, 0x6e, 0x2f, 0x63, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0xa2, 0x02, 0x03,
+	0x43, 0x43, 0x58, 0xaa, 0x02, 0x15, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e,
+	0x2e, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0xca, 0x02, 0x15, 0x43, 0x72,
 	0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x5c, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68,
-	0x61, 0x69, 0x6e, 0x5c, 0x47, 0x50, 0x42, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea,
-	0x02, 0x16, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x3a, 0x3a, 0x43, 0x72,
-	0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x61, 0x69, 0x6e, 0xe2, 0x02, 0x21, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e,
+	0x5c, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e, 0x5c, 0x47, 0x50, 0x42, 0x4d,
+	0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0xea, 0x02, 0x16, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63,
+	0x68, 0x61, 0x69, 0x6e, 0x3a, 0x3a, 0x43, 0x72, 0x75, 0x64, 0x65, 0x63, 0x68, 0x61, 0x69, 0x6e,
+	0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -944,21 +2988,36 @@ func file_crudechain_crudechain_query_proto_rawDescGZIP() []byte {
 	return file_crudechain_crudechain_query_proto_rawDescData
 }
 
-var file_crudechain_crudechain_query_proto_msgTypes = make([]protoimpl.MessageInfo, 2)
+var file_crudechain_crudechain_query_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_crudechain_crudechain_query_proto_goTypes = []interface{}{
-	(*QueryParamsRequest)(nil),  // 0: crudechain.crudechain.QueryParamsRequest
-	(*QueryParamsResponse)(nil), // 1: crudechain.crudechain.QueryParamsResponse
-	(*Params)(nil),              // 2: crudechain.crudechain.Params
+	(*QueryParamsRequest)(nil),         // 0: crudechain.crudechain.QueryParamsRequest
+	(*QueryParamsResponse)(nil),        // 1: crudechain.crudechain.QueryParamsResponse
+	(*QueryGetCrudeblockRequest)(nil),  // 2: crudechain.crudechain.QueryGetCrudeblockRequest
+	(*QueryGetCrudeblockResponse)(nil), // 3: crudechain.crudechain.QueryGetCrudeblockResponse
+	(*QueryAllCrudeblockRequest)(nil),  // 4: crudechain.crudechain.QueryAllCrudeblockRequest
+	(*QueryAllCrudeblockResponse)(nil), // 5: crudechain.crudechain.QueryAllCrudeblockResponse
+	(*Params)(nil),                     // 6: crudechain.crudechain.Params
+	(*Crudeblock)(nil),                 // 7: crudechain.crudechain.Crudeblock
+	(*v1beta1.PageRequest)(nil),        // 8: cosmos.base.query.v1beta1.PageRequest
+	(*v1beta1.PageResponse)(nil),       // 9: cosmos.base.query.v1beta1.PageResponse
 }
 var file_crudechain_crudechain_query_proto_depIdxs = []int32{
-	2, // 0: crudechain.crudechain.QueryParamsResponse.params:type_name -> crudechain.crudechain.Params
-	0, // 1: crudechain.crudechain.Query.Params:input_type -> crudechain.crudechain.QueryParamsRequest
-	1, // 2: crudechain.crudechain.Query.Params:output_type -> crudechain.crudechain.QueryParamsResponse
-	2, // [2:3] is the sub-list for method output_type
-	1, // [1:2] is the sub-list for method input_type
-	1, // [1:1] is the sub-list for extension type_name
-	1, // [1:1] is the sub-list for extension extendee
-	0, // [0:1] is the sub-list for field type_name
+	6, // 0: crudechain.crudechain.QueryParamsResponse.params:type_name -> crudechain.crudechain.Params
+	7, // 1: crudechain.crudechain.QueryGetCrudeblockResponse.Crudeblock:type_name -> crudechain.crudechain.Crudeblock
+	8, // 2: crudechain.crudechain.QueryAllCrudeblockRequest.pagination:type_name -> cosmos.base.query.v1beta1.PageRequest
+	7, // 3: crudechain.crudechain.QueryAllCrudeblockResponse.Crudeblock:type_name -> crudechain.crudechain.Crudeblock
+	9, // 4: crudechain.crudechain.QueryAllCrudeblockResponse.pagination:type_name -> cosmos.base.query.v1beta1.PageResponse
+	0, // 5: crudechain.crudechain.Query.Params:input_type -> crudechain.crudechain.QueryParamsRequest
+	2, // 6: crudechain.crudechain.Query.Crudeblock:input_type -> crudechain.crudechain.QueryGetCrudeblockRequest
+	4, // 7: crudechain.crudechain.Query.CrudeblockAll:input_type -> crudechain.crudechain.QueryAllCrudeblockRequest
+	1, // 8: crudechain.crudechain.Query.Params:output_type -> crudechain.crudechain.QueryParamsResponse
+	3, // 9: crudechain.crudechain.Query.Crudeblock:output_type -> crudechain.crudechain.QueryGetCrudeblockResponse
+	5, // 10: crudechain.crudechain.Query.CrudeblockAll:output_type -> crudechain.crudechain.QueryAllCrudeblockResponse
+	8, // [8:11] is the sub-list for method output_type
+	5, // [5:8] is the sub-list for method input_type
+	5, // [5:5] is the sub-list for extension type_name
+	5, // [5:5] is the sub-list for extension extendee
+	0, // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_crudechain_crudechain_query_proto_init() }
@@ -967,6 +3026,7 @@ func file_crudechain_crudechain_query_proto_init() {
 		return
 	}
 	file_crudechain_crudechain_params_proto_init()
+	file_crudechain_crudechain_crudeblock_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_crudechain_crudechain_query_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*QueryParamsRequest); i {
@@ -992,6 +3052,54 @@ func file_crudechain_crudechain_query_proto_init() {
 				return nil
 			}
 		}
+		file_crudechain_crudechain_query_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryGetCrudeblockRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_crudechain_crudechain_query_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryGetCrudeblockResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_crudechain_crudechain_query_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryAllCrudeblockRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_crudechain_crudechain_query_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*QueryAllCrudeblockResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -999,7 +3107,7 @@ func file_crudechain_crudechain_query_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_crudechain_crudechain_query_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   2,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

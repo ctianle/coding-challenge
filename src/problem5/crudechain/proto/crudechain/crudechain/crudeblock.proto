@@ -1,0 +1,11 @@
+syntax = "proto3";
+package crudechain.crudechain;
+
+option go_package = "crudechain/x/crudechain/types";
+
+message Crudeblock {
+  uint64 id = 1;
+  string name = 2; 
+  string description = 3; 
+  string creator = 4;
+}

@@ -17,6 +17,17 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 					Use:       "params",
 					Short:     "Shows the parameters of the module",
 				},
+				{
+					RpcMethod: "CrudeblockAll",
+					Use:       "list-crudeblock",
+					Short:     "List all crudeblock",
+				},
+				{
+					RpcMethod:      "Crudeblock",
+					Use:            "show-crudeblock [id]",
+					Short:          "Shows a crudeblock by id",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}},
+				},
 				// this line is used by ignite scaffolding # autocli/query
 			},
 		},
@@ -27,6 +38,24 @@ func (am AppModule) AutoCLIOptions() *autocliv1.ModuleOptions {
 				{
 					RpcMethod: "UpdateParams",
 					Skip:      true, // skipped because authority gated
+				},
+				{
+					RpcMethod:      "CreateCrudeblock",
+					Use:            "create-crudeblock [name] [description]",
+					Short:          "Create crudeblock",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "name"}, {ProtoField: "description"}},
+				},
+				{
+					RpcMethod:      "UpdateCrudeblock",
+					Use:            "update-crudeblock [id] [name] [description]",
+					Short:          "Update crudeblock",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}, {ProtoField: "name"}, {ProtoField: "description"}},
+				},
+				{
+					RpcMethod:      "DeleteCrudeblock",
+					Use:            "delete-crudeblock [id]",
+					Short:          "Delete crudeblock",
+					PositionalArgs: []*autocliv1.PositionalArgDescriptor{{ProtoField: "id"}},
 				},
 				// this line is used by ignite scaffolding # autocli/tx
 			},

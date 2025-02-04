@@ -18,3 +18,8 @@ var (
 func KeyPrefix(p string) []byte {
 	return []byte(p)
 }
+
+const (
+	CrudeblockKey      = "Crudeblock/value/"
+	CrudeblockCountKey = "Crudeblock/count/"
+)
