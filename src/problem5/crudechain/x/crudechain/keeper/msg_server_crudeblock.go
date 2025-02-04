@@ -18,6 +18,7 @@ func (k msgServer) CreateCrudeblock(goCtx context.Context, msg *types.MsgCreateC
 		Creator:     msg.Creator,
 		Name:        msg.Name,
 		Description: msg.Description,
+		Priority:    msg.Priority,
 	}
 
 	id := k.AppendCrudeblock(

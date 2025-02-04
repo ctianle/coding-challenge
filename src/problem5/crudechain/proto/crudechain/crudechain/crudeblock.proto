@@ -8,4 +8,5 @@ message Crudeblock {
   string name = 2; 
   string description = 3; 
   string creator = 4;
+  uint32 priority = 5; // New field
 }

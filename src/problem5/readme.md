@@ -1,3 +1,9 @@
+# Breaking of consensus
+
+a. Breaking of consensus occurs when 2 or more different nodes is running different version of a chain and unable to agree on terms. 
+
+b. What I have changed is the addition of the Priority field for the transactions. By adding this new field, the old nodes wouldn't be in agreement since its a unknown and unrecognised field. Hence, it will be rejected.
+
 # learning notes
 
 ## Installing Ignite
